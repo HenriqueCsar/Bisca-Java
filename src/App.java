@@ -22,6 +22,8 @@ public class App {
 
         System.out.println(Jogador1.Cartas().toString());
 
+        System.out.println(Jogador1.QuantidadedePontos());
+        
         // System.out.println(Baralho.Baralho.toString());
 
 

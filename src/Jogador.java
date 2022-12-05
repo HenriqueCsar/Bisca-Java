@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 
 public class Jogador {
-    public int pontos;
+    public int pontos = 0;
 
     ArrayList<Carta> Cartas = new ArrayList<Carta>();
 
@@ -16,6 +16,9 @@ public class Jogador {
         Baralho.remove(Carta);
     }
 
+    public int QuantidadedePontos(){
+        return pontos;
+    }
 
     public int QuantidadeDeCartas(){
         return Cartas.size();
