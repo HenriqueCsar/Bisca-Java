@@ -16,6 +16,7 @@ public class Jogador {
         Baralho.remove(Carta);
     }
 
+
     public int QuantidadedePontos(){
         return pontos;
     }

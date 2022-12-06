@@ -7,21 +7,27 @@ public class Bisca {
     /*Metodo Regras do jogo*/
     
 
-    public Carta PegarTrunfo(ArrayList<Carta> Baralho){
+    public Carta PegarTrunfo(ArrayList<Carta> baralho){
 
-        int Number = (int) (Math.random() * Baralho.size() - 0 + 1) + 0;
+        int Number = (int) (Math.random() * baralho.size() - 0 + 1) + 0;
         
-        Carta Carta = Baralho.get(Number);
+        Carta Carta = baralho.get(Number);
         if(!(Carta.GetFace()=="As" || Carta.GetFace() == "7")){
             System.out.println("- Trunfo Válido - "+Carta.toString());
-            Baralho.remove(Number);
+            baralho.remove(Number);
         }else{
             System.out.println(" - Trunfo inválido - Face: " + Carta.GetFace());
-            PegarTrunfo(Baralho);
+            PegarTrunfo(baralho);
         }
     
         return Carta;
     
+    }
+
+    public void DistribuirCartas(Baralho baralho, Jogador Jogador){
+        for(int i = 0; i < 3; i++){
+           Jogador.PegarCartaBaralho(baralho.Baralho);
+        }
     }
 
     
