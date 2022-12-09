@@ -11,16 +11,16 @@ public class Carta {
         this.Peso = Peso;
     }
         
-    public String GetNipe() {
+    public String PegarNipe() {
         return this.Nipe;
     }
 
 
-    public String GetFace() {
+    public String PegarFace() {
         return this.Face;
     }
 
-    public int GetPeso() {
+    public int PegarPeso() {
         return this.Peso;
     }
 

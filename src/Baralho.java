@@ -23,7 +23,7 @@ public ArrayList<Carta> Cartas(){
 }
 
 
-public int GetTamanhoBaralho(){
+public int PegarTamanhoBaralho(){
     return Baralho.size();
 }
 

@@ -9,14 +9,12 @@ public class Bisca {
 
     public Carta PegarTrunfo(ArrayList<Carta> baralho){
 
-        int Number = (int) (Math.random() * baralho.size() - 0 + 1) + 0;
+        int Number = (int) (Math.random() * baralho.size()-1 - 0 + 1) + 0;
         
         Carta Carta = baralho.get(Number);
-        if(!(Carta.GetFace()=="As" || Carta.GetFace() == "7")){
-            System.out.println("- Trunfo Válido - "+Carta.toString());
+        if(!(Carta.PegarFace()=="As" || Carta.PegarFace() == "7")){
             baralho.remove(Number);
         }else{
-            System.out.println(" - Trunfo inválido - Face: " + Carta.GetFace());
             PegarTrunfo(baralho);
         }
     
@@ -29,6 +27,11 @@ public class Bisca {
            Jogador.PegarCartaBaralho(baralho.Baralho);
         }
     }
+
+    
+
+
+
 
     
     // public Carta PegarCarta(ArrayList<Carta> Baralho){
