@@ -48,16 +48,37 @@ public class Jogador {
 
 
     public void PegarCartadaPartida(ArrayList<Carta> cartasPartida,Carta trunfo) {
-        // jogador 1
-        if(cartasPartida.get(0).PegarNipe()== trunfo.PegarNipe()){ 
+
+        if(cartasPartida.get(0).PegarPeso() > cartasPartida.get(1).PegarPeso()){
+         
+         
+        }
+
+        if( cartasPartida.get(0).PegarPeso() == 0 && cartasPartida.get(1).PegarPeso() == 0 ){
+            
+            if( Integer.parseInt(cartasPartida.get(0).PegarFace()) > Integer.parseInt(cartasPartida.get(1).PegarFace())){
+                CartasPartida.add(cartasPartida.get(0));
+                cartasPartida.remove(cartasPartida.get(0));
+            }else{
+                CartasPartida.add(cartasPartida.get(1));
+                cartasPartida.remove(cartasPartida.get(1));   
+            }
             
 
         }
 
-        //jogador 2
-        if(cartasPartida.get(1).PegarNipe()== trunfo.PegarNipe()){
+            // jogador 1 ---- 2 p: 3
+            if(cartasPartida.get(0).PegarNipe()== trunfo.PegarNipe()){ 
+                
 
-        }
+            }
+
+            //jogador 2 ------ 3 p: 0
+            if(cartasPartida.get(1).PegarNipe()== trunfo.PegarNipe()){
+
+            }
+
+        
     }
 
 
