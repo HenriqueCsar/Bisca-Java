@@ -47,12 +47,9 @@ public class Jogador {
     }
 
 
-    // public void PegarCartadaPartida(Partida cartasPartida2) {
-    //     Carta Trunfo = cartasPartida2.Trufo;
-    //     if(Trunfo.PegarNipe() == ""){
-
-    //     }
-    // }
+    public void PegarCartadaPartida(ArrayList<Carta> cartasPartida2,Carta trunfo) {
+        
+    }
 
 
     public int QuantidadedePontos(){
