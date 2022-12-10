@@ -23,11 +23,21 @@ public class Partida {
 
         Jogador1.ColocarCartaPartida(CartasPartida, Trufo);
         Jogador2.ColocarCartaPartida(CartasPartida, Trufo);
+
+        System.out.println("Partida "+CartasPartida.toString());
+
         
+        System.out.println("Jogador1 "+Jogador1.CartasdoJogador.toString()); 
+        System.out.println("Jogador2 "+Jogador2.CartasdoJogador.toString()); 
+
         Jogador1.PegarCartadaPartida(CartasPartida,Trufo);
-        System.out.println(CartasPartida.toString());
-    
-    
+        Jogador2.PegarCartadaPartida(CartasPartida,Trufo);
+
+        System.out.println("CartasGanhadasJogador1 "+Jogador1.CartasGanhadasJogador.toString());
+        System.out.println("CartasGanhadasJogador2 "+Jogador2.CartasGanhadasJogador.toString());
+
+
+
         // System.out.println(Jogador1.QuantidadedePontos());
         
         // System.out.println(Baralho.Baralho.toString());

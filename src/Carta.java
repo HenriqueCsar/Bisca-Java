@@ -3,6 +3,7 @@ public class Carta {
     public String Nipe;
     public String Face;
     public int Peso;
+    public Jogador jogador;
     // ArrayList<C> Baralho;
 
     public Carta(String Nipe, String Face, int Peso){
@@ -24,11 +25,14 @@ public class Carta {
         return this.Peso;
     }
 
+    public Jogador PegarIdJogador(){
+        return this.jogador;
+    }
 
 
     @Override
     public String toString(){
-        return "Nipe:"+this.Nipe+" Face:"+this.Face+" Peso: "+this.Peso+"\n";
+        return "Nipe:"+this.Nipe+" Face:"+this.Face+" Peso: "+this.Peso+" Jogador:"+this.jogador+"\n";
     }
 
     
