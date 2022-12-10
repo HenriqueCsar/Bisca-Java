@@ -24,7 +24,7 @@ public class Partida {
         Jogador1.ColocarCartaPartida(CartasPartida, Trufo);
         Jogador2.ColocarCartaPartida(CartasPartida, Trufo);
         
-        
+        Jogador1.PegarCartadaPartida(CartasPartida,Trufo);
         System.out.println(CartasPartida.toString());
     
     
