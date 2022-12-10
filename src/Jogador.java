@@ -47,8 +47,17 @@ public class Jogador {
     }
 
 
-    public void PegarCartadaPartida(ArrayList<Carta> cartasPartida2,Carta trunfo) {
-        
+    public void PegarCartadaPartida(ArrayList<Carta> cartasPartida,Carta trunfo) {
+        // jogador 1
+        if(cartasPartida.get(0).PegarNipe()== trunfo.PegarNipe()){ 
+            
+
+        }
+
+        //jogador 2
+        if(cartasPartida.get(1).PegarNipe()== trunfo.PegarNipe()){
+
+        }
     }
 
 
