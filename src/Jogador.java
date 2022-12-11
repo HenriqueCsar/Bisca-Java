@@ -18,24 +18,24 @@ public class Jogador {
         Baralho.remove(Carta);
     }
 
-    public void ColocarCartaPartida(ArrayList<Carta> cartasPartida, Carta Trufo){
+    public void ColocarCartaPartida(ArrayList<Carta> cartasPartida, Carta Trunfo, Jogador jogador1, Jogador jogador2, Regras Regras){
         
         int Number = (int) (Math.random() * CartasdoJogador.size()-1 - 0 + 1) + 0;
         
         Carta Carta = CartasdoJogador().get(Number);
-                
+
+        // System.out.println("Regras 07 do trufo - "+Regras.VerificarSeO7doTrunfoSaiu(Carta,Trunfo, jogador1, jogador2)); 
+    
         //Verificando se saiu o 7 do mesmo nipe na partida.
-        if(Carta.Face == "As" && Carta.PegarNipe() == Trufo.PegarNipe()){
-            for(int i = 0; i<CartasdoJogador.size()-1; i++){
-                if(CartasdoJogador().get(i).PegarFace() == "7" && Carta.PegarNipe() == Trufo.PegarNipe()){
-                    cartasPartida.add(Carta);
-                    CartasdoJogador.remove(Carta);
-                }else{
-                    ColocarCartaPartida(cartasPartida, Trufo);
-                };
+        if(Carta.Face == "As" && Carta.PegarNipe() == Trunfo.PegarNipe()){
+            if(Regras.VerificarSeO7doTrunfoSaiu(Carta,Trunfo, jogador1, jogador2)){
+                cartasPartida.add(Carta);
+                CartasdoJogador().remove(Carta);
+            }else{
+                ColocarCartaPartida(cartasPartida, Trunfo, jogador1, jogador2, Regras);
+                
             }
         }else{
-
             //Colocar carta na partida utilizando a referência.
             cartasPartida.add(Carta);
 
@@ -50,79 +50,105 @@ public class Jogador {
             //CONSIDERANDO QUE SEJAM AS DUAS CARTAS DA PARTIDA COM O MESMO NIPE.
             try{
             if(trunfo.PegarNipe() == cartasPartida.get(0).PegarNipe() && trunfo.PegarNipe() == cartasPartida.get(1).PegarNipe()){
-                System.out.println("CONSIDERANDO QUE SEJAM AS DUAS CARTAS DA PARTIDA COM O MESMO NIPE.");
+                // System.out.println("CONSIDERANDO QUE SEJAM AS DUAS CARTAS DA PARTIDA COM O MESMO NIPE.");
                 //VERIFICANDO SE O PESO É DIFERENTE.
                 if(cartasPartida.get(0).PegarPeso() > cartasPartida.get(1).PegarPeso()){
 
                     //CONSIDERANDO QUE O INDEX 0 SEJA A CARTA DO JOGADOR ATUAL
                     if(cartasPartida.get(0).jogador == this){
+                        CartasGanhadasJogador.add(cartasPartida.get(1));
                         CartasGanhadasJogador.add(cartasPartida.get(0));
+                        cartasPartida.remove(cartasPartida.get(1));
                         cartasPartida.remove(cartasPartida.get(0));
                     }
                 
                 //CONSIDERANDO QUE O PESO SEJAM IGUAIS.
                 }else if(cartasPartida.get(0).PegarPeso() == cartasPartida.get(1).PegarPeso()){
+
                     //CONSIDERANDO QUE O INDEX 0 TENHAM A FACE MAIOR DO QUE O INDEX 1
                     if(Integer.parseInt(cartasPartida.get(0).PegarFace()) > Integer.parseInt(cartasPartida.get(1).PegarFace())){
                         if(cartasPartida.get(0).jogador == this){
+                            CartasGanhadasJogador.add(cartasPartida.get(1));
                             CartasGanhadasJogador.add(cartasPartida.get(0));
+                            cartasPartida.remove(cartasPartida.get(1));
                             cartasPartida.remove(cartasPartida.get(0));
                         }
                     }else{
                         if(cartasPartida.get(1).jogador == this){
                             CartasGanhadasJogador.add(cartasPartida.get(1));
+                            CartasGanhadasJogador.add(cartasPartida.get(0));
                             cartasPartida.remove(cartasPartida.get(1));
+                            cartasPartida.remove(cartasPartida.get(0));
                         }
                     }
                 }else{
                     //CONSIDERANDO QUE O INDEX 1 SEJA A CARTA DO JOGADOR ATUAL
                     if(cartasPartida.get(1).jogador == this){
                         CartasGanhadasJogador.add(cartasPartida.get(1));
+                        CartasGanhadasJogador.add(cartasPartida.get(0));
                         cartasPartida.remove(cartasPartida.get(1));
+                        cartasPartida.remove(cartasPartida.get(0));
                     }
                 }
 
         //CONSIDERANDO QUE PELO MENOS UM TENHA O NIPE IGUAL O DO TRUNFO
         }else if(trunfo.PegarNipe() == cartasPartida.get(0).PegarNipe() || trunfo.PegarNipe() == cartasPartida.get(1).PegarNipe() ){
             System.out.println("CONSIDERANDO QUE PELO MENOS UM TENHA O NIPE IGUAL O DO TRUNFO");
-                for(int i = 0; i<cartasPartida.size()-1;i++){
-                    if(cartasPartida.get(i).jogador == this){
-                        CartasGanhadasJogador.add(cartasPartida.get(i));
-                        cartasPartida.remove(cartasPartida.get(i));
+                    if(cartasPartida.get(0).jogador == this && trunfo.PegarNipe() == cartasPartida.get(0).PegarNipe() ){
+                        CartasGanhadasJogador.add(cartasPartida.get(1));
+                        CartasGanhadasJogador.add(cartasPartida.get(0));
+                        cartasPartida.remove(cartasPartida.get(1));
+                        cartasPartida.remove(cartasPartida.get(0));
                     }
-            }
+                    if(cartasPartida.get(1).jogador == this && trunfo.PegarNipe() == cartasPartida.get(1).PegarNipe() ){
+                        CartasGanhadasJogador.add(cartasPartida.get(1));
+                        CartasGanhadasJogador.add(cartasPartida.get(0));
+                        cartasPartida.remove(cartasPartida.get(1));
+                        cartasPartida.remove(cartasPartida.get(0));
+                    }
+            
         //CONSIDERANDO QUE O NÃO TENHAM NIPES IGUAIS AO TRUFO 
         }else{
             System.out.println("CONSIDERANDO QUE O NÃO TENHAM NIPES IGUAIS AO TRUFO ");
-            if(cartasPartida.get(0).PegarPeso() > cartasPartida.get(1).PegarPeso()){
+            if(cartasPartida.get(0).PegarPeso() > cartasPartida.get(1).PegarPeso() && cartasPartida.get(0).PegarNipe() == cartasPartida.get(1).PegarNipe()){
 
                 //CONSIDERANDO QUE O INDEX 0 SEJA A CARTA DO JOGADOR ATUAL
                 if(cartasPartida.get(0).jogador == this){
+                    CartasGanhadasJogador.add(cartasPartida.get(1));
                     CartasGanhadasJogador.add(cartasPartida.get(0));
+                    cartasPartida.remove(cartasPartida.get(1));
                     cartasPartida.remove(cartasPartida.get(0));
                 }
             
             //CONSIDERANDO QUE O PESO SEJAM IGUAIS.
-            }else if(cartasPartida.get(0).PegarPeso() == cartasPartida.get(1).PegarPeso()){
+            }else if(cartasPartida.get(0).PegarPeso() == cartasPartida.get(1).PegarPeso() && cartasPartida.get(0).PegarNipe() == cartasPartida.get(1).PegarNipe()){
                 System.out.println("CONSIDERANDO QUE O PESO SEJAM IGUAIS.");
                 //CONSIDERANDO QUE O INDEX 0 TENHAM A FACE MAIOR DO QUE O INDEX 1
                 if(Integer.parseInt(cartasPartida.get(0).PegarFace()) > Integer.parseInt(cartasPartida.get(1).PegarFace())){
                     if(cartasPartida.get(0).jogador == this){
+                        CartasGanhadasJogador.add(cartasPartida.get(1));
                         CartasGanhadasJogador.add(cartasPartida.get(0));
+                        cartasPartida.remove(cartasPartida.get(1));
                         cartasPartida.remove(cartasPartida.get(0));
                     }
                 }else{
                     if(cartasPartida.get(1).jogador == this){
                         CartasGanhadasJogador.add(cartasPartida.get(1));
+                        CartasGanhadasJogador.add(cartasPartida.get(0));
                         cartasPartida.remove(cartasPartida.get(1));
+                        cartasPartida.remove(cartasPartida.get(0));
+
                     }
                 }
             }else{
                 //CONSIDERANDO QUE O INDEX 1 SEJA A CARTA DO JOGADOR ATUAL
                 System.out.println("CONSIDERANDO QUE O INDEX 1 SEJA A CARTA DO JOGADOR ATUAL");
-                if(cartasPartida.get(1).jogador == this){
+                if(cartasPartida.get(0).jogador == this){
                     CartasGanhadasJogador.add(cartasPartida.get(1));
+                    CartasGanhadasJogador.add(cartasPartida.get(0));
                     cartasPartida.remove(cartasPartida.get(1));
+                    cartasPartida.remove(cartasPartida.get(0));
+
                 }
             }
         }
@@ -179,7 +205,8 @@ public class Jogador {
 
 
     public int QuantidadedePontos(){
-        for(int i = 0; i<CartasGanhadasJogador.size()-1; i++){
+        this.pontos=0;
+        for(int i = 0; i<CartasGanhadasJogador.size(); i++){
             this.pontos += CartasGanhadasJogador.get(i).PegarPeso();
         }
         return this.pontos;

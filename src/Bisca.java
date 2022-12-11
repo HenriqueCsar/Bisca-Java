@@ -12,13 +12,9 @@ public class Bisca {
         int Number = (int) (Math.random() * baralho.size()-1 - 0 + 1) + 0;
         
         Carta Carta = baralho.get(Number);
-        if(!(Carta.PegarFace()=="As" || Carta.PegarFace() == "7")){
-            baralho.remove(Number);
-        }else{
-            PegarTrunfo(baralho);
-        }
-    
+        
         return Carta;
+    
     
     }
 
