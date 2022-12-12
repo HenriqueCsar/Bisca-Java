@@ -1,23 +1,34 @@
+import java.util.ArrayList;
 
 public class Regras {
     
-    public boolean VerificarSeO7doTrunfoSaiu(Carta Carta, Carta Trunfo, Jogador Jogador1, Jogador Jogador2){
+    public boolean VerificarSeO7doTrunfoSaiu(ArrayList<Carta> cartasPartida, Carta Carta, Carta Trunfo, Jogador Jogador1, Jogador Jogador2){
 
-        //Verificando se saiu o 7 do mesmo nipe na partida.
+        //Verificando se saiu o 7 do mesmo nipe do trunfo na partida.
 
         for(int i = 0; i<Jogador1.CartasGanhadasJogador.size()-1;i++){
-                if(Jogador1.CartasGanhadasJogador().get(i).PegarFace() == "7" && Carta.PegarNipe() == Trunfo.PegarNipe()){
-                   return true;
-                }
+            if(Jogador1.CartasGanhadasJogador().get(i).PegarFace() == "7" && Carta.PegarNipe() == Trunfo.PegarNipe()){
+                return true;
             }
+        }
 
-            for(int i = 0; i<Jogador2.CartasGanhadasJogador.size()-1;i++){
-                if(Jogador2.CartasGanhadasJogador().get(i).PegarFace() == "7" && Carta.PegarNipe() == Trunfo.PegarNipe()){
-                   return true;
-                }
+        for(int i = 0; i<Jogador2.CartasGanhadasJogador.size()-1;i++){
+            if(Jogador2.CartasGanhadasJogador().get(i).PegarFace() == "7" && Carta.PegarNipe() == Trunfo.PegarNipe()){
+                return true;
             }
+        }
+
+        for(int i = 0; i<cartasPartida.size()-1;i++){
+            if(cartasPartida.get(i).PegarFace() == "7" && Carta.PegarNipe() == Trunfo.PegarNipe()){
+                return true;
+            }
+        }
+
+
             return false;
         }
+
+
     
 
 
