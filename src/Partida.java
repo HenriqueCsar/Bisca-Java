@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Partida {
     Carta Trunfo;
-
     ArrayList<Carta> CartasPartida = new ArrayList<Carta>();  
     
     public Partida(Baralho Baralho, Bisca BiscaGame, Jogador Jogador1, Jogador Jogador2, Regras Regras){
@@ -22,6 +21,7 @@ public class Partida {
             Baralho.Baralho.remove(this.Trunfo);
         }
     
+        
 
         System.out.println(Baralho.PegarTamanhoBaralho());
 
@@ -43,6 +43,8 @@ public class Partida {
         Jogador1.PegarCartadaPartida(CartasPartida,Trunfo);
         Jogador2.PegarCartadaPartida(CartasPartida,Trunfo);
 
+        System.out.println(Jogador.Ganhador); 
+
         
         System.out.println("Jogador1 "+Jogador1.CartasdoJogador.toString()); 
         System.out.println("Jogador2 "+Jogador2.CartasdoJogador.toString()); 
@@ -54,20 +56,32 @@ public class Partida {
         System.out.println(" Quantidade de Pontos Jogador2: "+Jogador2.QuantidadedePontos());
         try{
             for(int i = 0; i < 40; i++){
+
+            
             Jogador1.PegarCartaBaralho(Baralho.Baralho);
             Jogador2.PegarCartaBaralho(Baralho.Baralho);
+
+            System.out.println(Jogador.Ganhador); 
+
 
             System.out.println("Jogador1 "+Jogador1.CartasdoJogador.toString()); 
             System.out.println("Jogador2 "+Jogador2.CartasdoJogador.toString()); 
 
-            Jogador1.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
-            Jogador2.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
-
+            if(Jogador.Ganhador == Jogador1){
+                Jogador1.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
+                Jogador2.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
+            }else{
+                Jogador2.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras); 
+                Jogador1.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
+            }
             System.out.println("Partida "+CartasPartida.toString());
 
 
             Jogador1.PegarCartadaPartida(CartasPartida,Trunfo);
             Jogador2.PegarCartadaPartida(CartasPartida,Trunfo);
+
+            System.out.println(Jogador.Ganhador); 
+
 
             System.out.println("CartasGanhadasJogador1 "+Jogador1.CartasGanhadasJogador.toString());
             System.out.println("CartasGanhadasJogador2 "+Jogador2.CartasGanhadasJogador.toString());
@@ -84,8 +98,13 @@ try{
         System.out.println("Jogador1 "+Jogador1.CartasdoJogador.toString()); 
         System.out.println("Jogador2 "+Jogador2.CartasdoJogador.toString()); 
 
-        Jogador1.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
-        Jogador2.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
+        if(Jogador.Ganhador == Jogador1){
+            Jogador1.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
+            Jogador2.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
+        }else{
+            Jogador2.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras); 
+            Jogador1.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
+        }
 
         System.out.println("Partida "+CartasPartida.toString());
 
@@ -121,9 +140,14 @@ try{
     }
     
     Regras.FimPartida(Trunfo, Jogador1, Jogador2);
-
-    Jogador2.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
-    Jogador1.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
+    
+    if(Jogador.Ganhador == Jogador1){
+        Jogador1.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
+        Jogador2.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
+    }else{
+        Jogador2.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras); 
+        Jogador1.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
+    }
 
     System.out.println("Jogador1 depois das regras "+Jogador1.CartasdoJogador.toString()); 
     System.out.println("Jogador2 "+Jogador2.CartasdoJogador.toString()); 

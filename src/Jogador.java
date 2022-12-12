@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Jogador {
     public int id=0;
     public int pontos = 0;
+    static Jogador Ganhador;
 
     ArrayList<Carta> CartasdoJogador = new ArrayList<Carta>();
     ArrayList<Carta> CartasGanhadasJogador = new ArrayList<Carta>();
@@ -33,7 +34,6 @@ public class Jogador {
                 CartasdoJogador().remove(Carta);
             }else{
                 ColocarCartaPartida(cartasPartida, Trunfo, jogador1, jogador2, Regras);
-                
             }
         }else{
             //Colocar carta na partida utilizando a referência.
@@ -60,6 +60,7 @@ public class Jogador {
                         CartasGanhadasJogador.add(cartasPartida.get(0));
                         cartasPartida.remove(cartasPartida.get(1));
                         cartasPartida.remove(cartasPartida.get(0));
+                        AlterarGanhador(this);
                     }
                 
                 //CONSIDERANDO QUE O PESO SEJAM IGUAIS.
@@ -72,6 +73,7 @@ public class Jogador {
                             CartasGanhadasJogador.add(cartasPartida.get(0));
                             cartasPartida.remove(cartasPartida.get(1));
                             cartasPartida.remove(cartasPartida.get(0));
+                            AlterarGanhador(this);
                         }
                     }else{
                         if(cartasPartida.get(1).jogador == this){
@@ -79,6 +81,7 @@ public class Jogador {
                             CartasGanhadasJogador.add(cartasPartida.get(0));
                             cartasPartida.remove(cartasPartida.get(1));
                             cartasPartida.remove(cartasPartida.get(0));
+                            AlterarGanhador(this);
                         }
                     }
                 }else{
@@ -88,6 +91,7 @@ public class Jogador {
                         CartasGanhadasJogador.add(cartasPartida.get(0));
                         cartasPartida.remove(cartasPartida.get(1));
                         cartasPartida.remove(cartasPartida.get(0));
+                        AlterarGanhador(this);
                     }
                 }
 
@@ -99,12 +103,14 @@ public class Jogador {
                         CartasGanhadasJogador.add(cartasPartida.get(0));
                         cartasPartida.remove(cartasPartida.get(1));
                         cartasPartida.remove(cartasPartida.get(0));
+                        AlterarGanhador(this);
                     }
                     if(cartasPartida.get(1).jogador == this && trunfo.PegarNipe() == cartasPartida.get(1).PegarNipe() ){
                         CartasGanhadasJogador.add(cartasPartida.get(1));
                         CartasGanhadasJogador.add(cartasPartida.get(0));
                         cartasPartida.remove(cartasPartida.get(1));
                         cartasPartida.remove(cartasPartida.get(0));
+                        AlterarGanhador(this);
                     }
             
         //CONSIDERANDO QUE O NÃO TENHAM NIPES IGUAIS AO TRUFO 
@@ -118,6 +124,7 @@ public class Jogador {
                     CartasGanhadasJogador.add(cartasPartida.get(0));
                     cartasPartida.remove(cartasPartida.get(1));
                     cartasPartida.remove(cartasPartida.get(0));
+                    AlterarGanhador(this);
                 }
             
             //CONSIDERANDO QUE O PESO SEJAM IGUAIS.
@@ -130,6 +137,7 @@ public class Jogador {
                         CartasGanhadasJogador.add(cartasPartida.get(0));
                         cartasPartida.remove(cartasPartida.get(1));
                         cartasPartida.remove(cartasPartida.get(0));
+                        AlterarGanhador(this);
                     }
                 }else{
                     if(cartasPartida.get(1).jogador == this){
@@ -137,6 +145,7 @@ public class Jogador {
                         CartasGanhadasJogador.add(cartasPartida.get(0));
                         cartasPartida.remove(cartasPartida.get(1));
                         cartasPartida.remove(cartasPartida.get(0));
+                        AlterarGanhador(this);
 
                     }
                 }
@@ -148,7 +157,7 @@ public class Jogador {
                     CartasGanhadasJogador.add(cartasPartida.get(0));
                     cartasPartida.remove(cartasPartida.get(1));
                     cartasPartida.remove(cartasPartida.get(0));
-
+                    AlterarGanhador(this);
                 }
             }
         }
@@ -224,6 +233,10 @@ public class Jogador {
 
     public ArrayList<Carta> CartasGanhadasJogador(){
         return CartasGanhadasJogador;
+    }
+
+    public void AlterarGanhador(Jogador ganhador){
+        Jogador.Ganhador = ganhador;
     }
 
 }
