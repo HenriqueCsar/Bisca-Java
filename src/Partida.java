@@ -21,7 +21,8 @@ public class Partida {
             Baralho.Baralho.remove(this.Trunfo);
         }
     
-        
+        System.out.println("Trunfo: "+this.Trunfo);
+
 
         System.out.println(Baralho.PegarTamanhoBaralho());
 
@@ -140,7 +141,7 @@ try{
     }
     
     Regras.FimPartida(Trunfo, Jogador1, Jogador2);
-    
+
     if(Jogador.Ganhador == Jogador1){
         Jogador1.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
         Jogador2.ColocarCartaPartida(CartasPartida, Trunfo, Jogador1, Jogador2, Regras);
@@ -199,9 +200,9 @@ try{
 
     System.out.println("\n");
 
-    System.out.println("Jogador1 "+Jogador1.CartasGanhadasJogador.toString());
+    System.out.println("CartasGanhadasJogador1 "+Jogador1.CartasGanhadasJogador.toString());
 
-    System.out.println("Jogador2 "+Jogador2.CartasGanhadasJogador.toString());
+    System.out.println("CartasGanhadasJogador2 "+Jogador2.CartasGanhadasJogador.toString());
 
     System.out.println(" Quantidade de Pontos Jogador1: "+Jogador1.QuantidadedePontos());
     System.out.println(" Quantidade de Pontos Jogador2: "+Jogador2.QuantidadedePontos());

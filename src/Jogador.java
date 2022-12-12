@@ -56,10 +56,7 @@ public class Jogador {
 
                     //CONSIDERANDO QUE O INDEX 0 SEJA A CARTA DO JOGADOR ATUAL
                     if(cartasPartida.get(0).jogador == this){
-                        CartasGanhadasJogador.add(cartasPartida.get(1));
-                        CartasGanhadasJogador.add(cartasPartida.get(0));
-                        cartasPartida.remove(cartasPartida.get(1));
-                        cartasPartida.remove(cartasPartida.get(0));
+                        AdicionarRemoverCarta(cartasPartida);
                         AlterarGanhador(this);
                     }
                 
@@ -69,28 +66,19 @@ public class Jogador {
                     //CONSIDERANDO QUE O INDEX 0 TENHAM A FACE MAIOR DO QUE O INDEX 1
                     if(Integer.parseInt(cartasPartida.get(0).PegarFace()) > Integer.parseInt(cartasPartida.get(1).PegarFace())){
                         if(cartasPartida.get(0).jogador == this){
-                            CartasGanhadasJogador.add(cartasPartida.get(1));
-                            CartasGanhadasJogador.add(cartasPartida.get(0));
-                            cartasPartida.remove(cartasPartida.get(1));
-                            cartasPartida.remove(cartasPartida.get(0));
+                            AdicionarRemoverCarta(cartasPartida);
                             AlterarGanhador(this);
                         }
                     }else{
                         if(cartasPartida.get(1).jogador == this){
-                            CartasGanhadasJogador.add(cartasPartida.get(1));
-                            CartasGanhadasJogador.add(cartasPartida.get(0));
-                            cartasPartida.remove(cartasPartida.get(1));
-                            cartasPartida.remove(cartasPartida.get(0));
+                            AdicionarRemoverCarta(cartasPartida);
                             AlterarGanhador(this);
                         }
                     }
                 }else{
                     //CONSIDERANDO QUE O INDEX 1 SEJA A CARTA DO JOGADOR ATUAL
                     if(cartasPartida.get(1).jogador == this){
-                        CartasGanhadasJogador.add(cartasPartida.get(1));
-                        CartasGanhadasJogador.add(cartasPartida.get(0));
-                        cartasPartida.remove(cartasPartida.get(1));
-                        cartasPartida.remove(cartasPartida.get(0));
+                        AdicionarRemoverCarta(cartasPartida);
                         AlterarGanhador(this);
                     }
                 }
@@ -99,17 +87,11 @@ public class Jogador {
         }else if(trunfo.PegarNipe() == cartasPartida.get(0).PegarNipe() || trunfo.PegarNipe() == cartasPartida.get(1).PegarNipe() ){
             System.out.println("CONSIDERANDO QUE PELO MENOS UM TENHA O NIPE IGUAL O DO TRUNFO");
                     if(cartasPartida.get(0).jogador == this && trunfo.PegarNipe() == cartasPartida.get(0).PegarNipe() ){
-                        CartasGanhadasJogador.add(cartasPartida.get(1));
-                        CartasGanhadasJogador.add(cartasPartida.get(0));
-                        cartasPartida.remove(cartasPartida.get(1));
-                        cartasPartida.remove(cartasPartida.get(0));
+                        AdicionarRemoverCarta(cartasPartida);
                         AlterarGanhador(this);
                     }
                     if(cartasPartida.get(1).jogador == this && trunfo.PegarNipe() == cartasPartida.get(1).PegarNipe() ){
-                        CartasGanhadasJogador.add(cartasPartida.get(1));
-                        CartasGanhadasJogador.add(cartasPartida.get(0));
-                        cartasPartida.remove(cartasPartida.get(1));
-                        cartasPartida.remove(cartasPartida.get(0));
+                        AdicionarRemoverCarta(cartasPartida);
                         AlterarGanhador(this);
                     }
             
@@ -120,10 +102,7 @@ public class Jogador {
 
                 //CONSIDERANDO QUE O INDEX 0 SEJA A CARTA DO JOGADOR ATUAL
                 if(cartasPartida.get(0).jogador == this){
-                    CartasGanhadasJogador.add(cartasPartida.get(1));
-                    CartasGanhadasJogador.add(cartasPartida.get(0));
-                    cartasPartida.remove(cartasPartida.get(1));
-                    cartasPartida.remove(cartasPartida.get(0));
+                    AdicionarRemoverCarta(cartasPartida);
                     AlterarGanhador(this);
                 }
             
@@ -133,18 +112,12 @@ public class Jogador {
                 //CONSIDERANDO QUE O INDEX 0 TENHAM A FACE MAIOR DO QUE O INDEX 1
                 if(Integer.parseInt(cartasPartida.get(0).PegarFace()) > Integer.parseInt(cartasPartida.get(1).PegarFace())){
                     if(cartasPartida.get(0).jogador == this){
-                        CartasGanhadasJogador.add(cartasPartida.get(1));
-                        CartasGanhadasJogador.add(cartasPartida.get(0));
-                        cartasPartida.remove(cartasPartida.get(1));
-                        cartasPartida.remove(cartasPartida.get(0));
+                        AdicionarRemoverCarta(cartasPartida);
                         AlterarGanhador(this);
                     }
                 }else{
                     if(cartasPartida.get(1).jogador == this){
-                        CartasGanhadasJogador.add(cartasPartida.get(1));
-                        CartasGanhadasJogador.add(cartasPartida.get(0));
-                        cartasPartida.remove(cartasPartida.get(1));
-                        cartasPartida.remove(cartasPartida.get(0));
+                        AdicionarRemoverCarta(cartasPartida);
                         AlterarGanhador(this);
 
                     }
@@ -153,10 +126,7 @@ public class Jogador {
                 //CONSIDERANDO QUE O INDEX 1 SEJA A CARTA DO JOGADOR ATUAL
                 System.out.println("CONSIDERANDO QUE O INDEX 1 SEJA A CARTA DO JOGADOR ATUAL");
                 if(cartasPartida.get(0).jogador == this){
-                    CartasGanhadasJogador.add(cartasPartida.get(1));
-                    CartasGanhadasJogador.add(cartasPartida.get(0));
-                    cartasPartida.remove(cartasPartida.get(1));
-                    cartasPartida.remove(cartasPartida.get(0));
+                    AdicionarRemoverCarta(cartasPartida);
                     AlterarGanhador(this);
                 }
             }
@@ -237,6 +207,13 @@ public class Jogador {
 
     public void AlterarGanhador(Jogador ganhador){
         Jogador.Ganhador = ganhador;
+    }
+
+    public void AdicionarRemoverCarta(ArrayList<Carta> cartasPartida){
+        CartasGanhadasJogador.add(cartasPartida.get(1));
+        CartasGanhadasJogador.add(cartasPartida.get(0));
+        cartasPartida.remove(cartasPartida.get(1));
+        cartasPartida.remove(cartasPartida.get(0));
     }
 
 }
