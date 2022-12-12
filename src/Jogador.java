@@ -29,7 +29,7 @@ public class Jogador {
     
         //Verificando se saiu o 7 do mesmo nipe na partida.
         if(Carta.Face == "As" && Carta.PegarNipe() == Trunfo.PegarNipe()){
-            if(Regras.VerificarSeO7doTrunfoSaiu(Carta,Trunfo, jogador1, jogador2)){
+            if(Regras.VerificarSeO7doTrunfoSaiu(cartasPartida,Carta,Trunfo, jogador1, jogador2)){
                 cartasPartida.add(Carta);
                 CartasdoJogador().remove(Carta);
             }else{
@@ -107,6 +107,15 @@ public class Jogador {
                 }
             
             //CONSIDERANDO QUE O PESO SEJAM IGUAIS.
+            }if(cartasPartida.get(0).PegarPeso() < cartasPartida.get(1).PegarPeso() && cartasPartida.get(0).PegarNipe() == cartasPartida.get(1).PegarNipe()){
+
+                //CONSIDERANDO QUE O INDEX 0 SEJA A CARTA DO JOGADOR ATUAL
+                if(cartasPartida.get(1).jogador == this){
+                    AdicionarRemoverCarta(cartasPartida);
+                    AlterarGanhador(this);
+                }
+            
+            //CONSIDERANDO QUE O PESO SEJAM IGUAIS.
             }else if(cartasPartida.get(0).PegarPeso() == cartasPartida.get(1).PegarPeso() && cartasPartida.get(0).PegarNipe() == cartasPartida.get(1).PegarNipe()){
                 System.out.println("CONSIDERANDO QUE O PESO SEJAM IGUAIS.");
                 //CONSIDERANDO QUE O INDEX 0 TENHAM A FACE MAIOR DO QUE O INDEX 1
@@ -131,54 +140,7 @@ public class Jogador {
                 }
             }
         }
-    }catch(Exception exception){
-        
-    }
-        
-        // if(cartasPartida.get(0).PegarPeso() > cartasPartida.get(1).PegarPeso()){
-            
-         
-        // }
-
-        //     // jogador 1 ---- 2 p: 3
-        //     if(cartasPartida.get(0).PegarNipe() == trunfo.PegarNipe()){ 
-                
-        //         //Caso os pesos ao pegar a partida forem iguais.
-        //         if( cartasPartida.get(0).PegarPeso() == 0 && cartasPartida.get(1).PegarPeso() == 0 ){
-                    
-        //             if( Integer.parseInt(cartasPartida.get(0).PegarFace()) > Integer.parseInt(cartasPartida.get(1).PegarFace())){
-        //                 CartasGanhadasJogador.add(cartasPartida.get(0));
-        //                 cartasPartida.remove(cartasPartida.get(0));
-        //             }else{
-        //                 CartasGanhadasJogador.add(cartasPartida.get(1));
-        //                 cartasPartida.remove(cartasPartida.get(1));   
-        //             }
-                    
-
-        //         }
-        //         if( cartasPartida.get(0).PegarPeso() > cartasPartida.get(1).PegarPeso()){
-                    
-                
-        //         }
-        //     }
-        //     //jogador 2 ------ 3 p: 0
-        //     if(cartasPartida.get(1).PegarNipe() == trunfo.PegarNipe()){
-
-        //             //Caso os pesos ao pegar a partida forem iguais.
-        //             if( cartasPartida.get(0).PegarPeso() == 0 && cartasPartida.get(1).PegarPeso() == 0 ){
-                        
-        //                 if( Integer.parseInt(cartasPartida.get(0).PegarFace()) > Integer.parseInt(cartasPartida.get(1).PegarFace())){
-        //                     CartasGanhadasJogador.add(cartasPartida.get(0));
-        //                     cartasPartida.remove(cartasPartida.get(0));
-        //                 }else{
-        //                     CartasGanhadasJogador.add(cartasPartida.get(1));
-        //                     cartasPartida.remove(cartasPartida.get(1));   
-        //                 }
-                        
-
-        //             }
-        //     }
-
+    }catch(Exception exception){}
         
     }
 

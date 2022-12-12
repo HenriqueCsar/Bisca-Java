@@ -6,9 +6,7 @@
 
 public class App {
     public static void main(String[] args) throws Exception {
-
         new Partida(new Baralho(), new Bisca(), new Jogador(), new Jogador(), new Regras());
-
     }
 
 }

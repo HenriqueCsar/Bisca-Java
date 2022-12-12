@@ -6,12 +6,10 @@ public class Partida {
     
     public Partida(Baralho Baralho, Bisca BiscaGame, Jogador Jogador1, Jogador Jogador2, Regras Regras){
     
-
+        //Condicional para pegar trunfo, considerando que seja diferente de As e 7.
         this.Trunfo = BiscaGame.PegarTrunfo(Baralho.Baralho);
 
-        
         if(this.Trunfo.Face=="As" || this.Trunfo.Face == "7"){
-            System.out.println("Passei aqui --------------------------");
             while(this.Trunfo.Face == "As" || this.Trunfo.Face == "7"){
              this.Trunfo = BiscaGame.PegarTrunfo(Baralho.Baralho);
             }
