@@ -33,7 +33,16 @@ public class Jogador {
                 cartasPartida.add(Carta);
                 CartasdoJogador().remove(Carta);
             }else{
-                ColocarCartaPartida(cartasPartida, Trunfo, jogador1, jogador2, Regras);
+
+                //Remover carta da partida utilizando a referência.
+                while(Carta.Face=="As" && Carta.PegarNipe() == Trunfo.PegarNipe()){
+                    Number = (int) (Math.random() * CartasdoJogador.size()-1 - 0 + 1) + 0;
+                    Carta = CartasdoJogador().get(Number);
+                }
+
+                cartasPartida.add(Carta);
+                CartasdoJogador().remove(Carta);
+
             }
         }else{
             //Colocar carta na partida utilizando a referência.
