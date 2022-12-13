@@ -7,19 +7,20 @@ public class Regras {
         //Verificando se saiu o 7 do mesmo nipe do trunfo na partida.
 
         for(int i = 0; i<Jogador1.CartasGanhadasJogador.size()-1;i++){
-            if(Jogador1.CartasGanhadasJogador().get(i).PegarFace() == "7" && Carta.PegarNipe() == Trunfo.PegarNipe()){
+            if(Jogador1.CartasGanhadasJogador().get(i).PegarFace() == "7" && Jogador1.CartasGanhadasJogador().get(i).PegarNipe() == Trunfo.PegarNipe()){
                 return true;
             }
         }
 
         for(int i = 0; i<Jogador2.CartasGanhadasJogador.size()-1;i++){
-            if(Jogador2.CartasGanhadasJogador().get(i).PegarFace() == "7" && Carta.PegarNipe() == Trunfo.PegarNipe()){
+            if(Jogador2.CartasGanhadasJogador().get(i).PegarFace() == "7" && Jogador2.CartasGanhadasJogador().get(i).PegarNipe() == Trunfo.PegarNipe()){
                 return true;
             }
         }
 
+        //Relis
         for(int i = 0; i<cartasPartida.size()-1;i++){
-            if(cartasPartida.get(i).PegarFace() == "7" && Carta.PegarNipe() == Trunfo.PegarNipe()){
+            if(cartasPartida.get(i).PegarFace() == "7" && cartasPartida.get(i).PegarNipe() == Trunfo.PegarNipe()){
                 return true;
             }
         }

@@ -24,6 +24,10 @@ public class Bisca {
         }
     }
 
+    // public void Cartiador(){
+        
+    // }
+
 
 
     
