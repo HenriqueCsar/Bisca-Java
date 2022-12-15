@@ -1,3 +1,5 @@
+package programa.bisca;
+
 
 public class Carta {
     public String Nipe;

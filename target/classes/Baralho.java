@@ -1,3 +1,5 @@
+package main.resources
+
 import java.util.ArrayList;
 
 public class Baralho {

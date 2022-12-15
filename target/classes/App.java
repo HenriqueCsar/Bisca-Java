@@ -3,10 +3,11 @@
  * DATE: 09/12/2022
  * 
  */
-
+package main.resources
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         new Partida(new Baralho(), new Bisca(), new Jogador(), new Jogador(), new Regras());
+        ///System.out.println("testes");
     }
 }
         
